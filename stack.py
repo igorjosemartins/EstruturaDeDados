@@ -1,5 +1,3 @@
-# 1) Crie uma pilha para armazenar nomes de
-# documentos. Cada documento terá um nome.
 
 class Stack:
     def __init__(self):
