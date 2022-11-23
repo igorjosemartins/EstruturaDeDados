@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt 
 import networkx as nx
 
 # inicializando o grafo
@@ -25,8 +24,6 @@ G.add_node("BA")
 G.add_node("AC")
 G.add_node("RO")
 G.add_node("GO")
-
-numVertices = str(G.number_of_nodes())
 
 
 # adicionando arestas
@@ -110,68 +107,9 @@ G.add_edge("RO", "GO", weight=6)
 # GO
 G.add_edge("GO", "RO", weight=6)
 
-numArestas = str(G.number_of_edges())
+start = input("\nDigite as iniciais do Estado de partida: ")
+end = input("\nDigite as inicias do Estado final: ")
 
-# prints
-print("\nNúmero de Vértices do grafo: " + numVertices)
-# print("Número de Arestas do grafo: " + numArestas)
+path = nx.shortest_path(G, start.upper(), end.upper())
 
-pesoArestas = {
-  # RS
-  "RS-SC" : ["2"],
-  
-  # SC
-  "SC-PR" : ["2"],
-  
-  # PR
-  "PR-SP" : ["1"],
-  
-  # SP
-  "SP-RJ" : ["4"],
-  "SP-MG" : ["3"],
-  "SP-MT" : ["6"],
-
-  # RJ
-  "RJ-ES" : ["1"],
-
-  # MG 
-  "MG-ES" : ["3"],
-  "MG-DF" : ["2"],
-
-  # MT
-  "MT-PA" : ["6"],
-
-  # PA
-  "PA-RR" : ["5"],
-
-  # RR
-  "RR-AM" : ["4"],
-
-  # AM
-  "AM-TO" : ["8"],
-
-  # TO
-  "TO-AP" : ["6"],
-
-  # AP
-  "AP-CE" : ["6"],
-
-  # CE
-  "CE-PI" : ["3"],
-
-  # PI
-  "PI-BA" : ["2"],
-
-  # BA
-  "BA-AC": ["12"],
-  
-  # AC
-  "AC-RO" : ["3"],
-  
-  # RO
-  "RO-GO" : ["6"]
-}
-
-print("\nPeso das arestas:")
-for i in pesoArestas:
-  print(i, pesoArestas[i])
+print("\nO menor caminho é: ", path)
